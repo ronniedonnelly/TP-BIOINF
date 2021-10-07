@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Lucas Cayol, Agustina Descalzo, Reinaldo Donnelly" />
+
+
+<title>TP Bioinformatica</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="index_files/style.css" type="text/css" />
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<div class="row">
+<div class="col s12 m3">
+<div class="table cover">
+<div class="cover-card table-cell table-middle">
+<span class="author_name">TP Bioinformatica</span>
+<span class="author_bio mbm">Lucas Cayol, Agustina Descalzo, Reinaldo Donnelly</span>
+<span class="author_bio mbm">9/21/2021</span>
+</div>
+</div>
+</div>
+
+
+<div class="col s12 m9">
+<div class="post-listing">
+
+<div id="post">
+<article class="post-content">
+<div id="como-identificar-y-caracterizar-un-gen-a-partir-de-su-secuencia-de-adn" class="section level2">
+<h2><strong>Cómo identificar y caracterizar un gen a partir de su secuencia de ADN</strong></h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Usar una herramienta de alineamiento de secuencias para identificar la secuencia desconocida (secuencia query).</strong> En este caso, se usa el programa <code>BLAST</code> de <code>NCBI</code>: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">&lt;https://blast.ncbi.nlm.nih.gov/Blast.cgi&gt;</a>.</p>
+<p>Nuestra query es una secuencia de ADN proveniente del organismo <strong>zea mays</strong> (maíz). Las plantas sensibles a ciertas enfermedades poseen un defecto en esta secuencia, lo cual inhabilita la síntesis de <strong>ácido cumárico</strong>, un <strong>fenilpropanoide</strong> asociado a la resistencia de enfermedades . Identificar y caracterizar el gen que codifica nos permitara analizar su importancia biológica.</p></li>
+</ol>
+<p><img src="foto18.jpeg" width="625" /></p>
+<p><img src="foto2.jpeg" width="625" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Elegir la secuencia que tenga mejor alineamiento con la query.</strong></li>
+</ol>
+<p><img src="foto3.jpeg" width="625" /></p>
+<p>3. <strong>Analizar e interpretar las características del gen identificado.</strong></p>
+<p><img src="foto4.jpeg" width="625" /></p>
+<p><img src="foto5.jpeg" width="625" /></p>
+<p><img src="foto6.jpeg" width="625" /></p>
+<p><em>¿Que significa el alineamiento? ¿Como se ve si clickeas en proteinas con menor porcentaje de identidad?</em></p>
+<p>El alineamiento de secuencias muestra el parentesco entre la secuencia con la que se trabaja (secuencia ‘<code>query</code>’) y la encontrada (secuencia ‘<code>subject</code>’). En el caso de esta secuencia, todos los nucleótidos coinciden base por base con los de la secuencia subject, dándonos un <code>porcentaje de identidad</code> del 100%. Si analizamos otros genes que no tienen un porcentaje de identidad del 100%, podemos ver que la mayoría de los nucleótidos de nuestra secuencia están presentes en la ‘subject’ pero se encuentran ‘<code>gaps</code>’, es decir, se encontró una secuencia similar a la query pero con regiones que no se alinean. A medida que decrece el porcentaje de identidad, comienzan a aparecer más ‘<code>mismatches</code>’, además de ‘<code>gaps</code>’.</p>
+<p><em>¿Que proteina es?</em></p>
+<p>La enzima <strong><code>Fenilalanina amonio liasa</code></strong></p>
+<p><em>¿Por que la CDS es más chica que la region abarcada por el exon?</em></p>
+<p>Dependiendo del <code>marco de lectura</code>, pueden haber diversos exones para una misma secuencia codificante. La ubicación de los <code>codones de iniciciación</code> y de <code>terminación</code> determina el largo de la secuencia codificante, que va a ser a lo sumo del mismo tamaño que los exones, pero usualmente más corta como en este caso.</p>
+<p><em>¿Donde estan los codones de iniciación y de terminación?</em></p>
+<p><code>122 (ATG) - 2272 (TGA).</code></p>
+<p>Para visualmente identificar estos codones y el marco de lectura, buscamos el codón de iniciación (AUG, en el caso de la secuencia con la que trabajamos seria ATG por ser ADN) y los codones de terminación (TAA, TAG, TGA). Utilizando la herramienta de COMMAND + F y sabiendo que el marco iba de 122 - 2272 encontramos que la secuencia de terminación era la TGA.</p>
+<p><img src="foto24.jpeg" width="625" /> <img src="foto25.jpeg" width="625" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p><strong>Utilizar UNIPROT para profundizar en la caracterización del gen.</strong> <a href="https://www.uniprot.org/" class="uri">https://www.uniprot.org/</a></p>
+<p><img src="foto1.jpeg" width="625" /></p></li>
+</ol>
+<p><img src="foto9.jpeg" width="625" /></p>
+<p>En la sección de <code>Gene Ontology (GO)</code> se puede ver la clasificación del gen según su función. Podemos ver que nuestro gen actúa como una enzima <strong>amonio-liasa</strong> y participa en la biosíntesis de <strong>ácido cinámico</strong> a partir de <strong>fenilalalina.</strong> Esto es de particular importancia para nuestro análisis porque el <strong>ácido cinámico</strong> es un <strong>fenilpropanoide</strong>, cómo el <strong>ácido cumárico</strong>.</p>
+<p><img src="foto10.jpeg" width="625" /></p>
+<p>Los números <code>EC (Enzyme Comission)</code> clasifican a las enzimas en base a la reacción química asociada. En este caso la enzima pertenece al grupo 4: <strong>liasas</strong>.</p>
+<p><img src="foto11.jpeg" width="625" /></p>
+<p>La sección de <code>Interaction</code>muestra un mapa de las diferentes proteínas que interactuan con nuestra enzima (pal4).</p>
+<p><img src="foto12.jpeg" width="625" /></p>
+<p><img src="foto13.jpeg" width="625" /></p>
+<p><img src="foto15.jpeg" width="625" /></p>
+<p>Luego en la sección de <code>Family &amp; Domains</code> se puede ver la similitud estructural y secuencial con otras proteínas y los dominios funcionales presentes.</p>
+<p>En este caso entramos a <code>OMA,</code> una base de datos filogenómica.</p>
+<p><img src="foto16.jpeg" width="625" /></p>
+<p>Podemos ver 6 organismos diferentes que poseen esta proteína en su genoma, y sus respectivos dominios.</p>
+<p><img src="foto17.jpeg" />Luego entrando a otra plataforma, como <code>eggNOG</code>, encontramos 900 proteínas similares a nuestra secuencia: <strong>ortólogos.</strong></p>
+<p><img src="foto17.jpeg" width="625" /></p>
+<p><strong>Ortólogos</strong> son genes que comparten el último ancestro común y cuya divergencia se debe a la especiación. Es decir, el mismo gen en diferentes especies .<a href="Tress,%20M.%20(2005).%20Análisis%20de%20Secuencias,%20Familias%20de%20Proteínas.%20Masters%20En%20Bioinformática%20Madrid%202005.%20http://www.pdg.cnb.uam.es/cursos/Master2005/Fam_theory/familias.pdf">Tress, M. (2005). Análisis de Secuencias, Familias de Proteínas. Masters En Bioinformática Madrid 2005. http://www.pdg.cnb.uam.es/cursos/Master2005/Fam_theory/familias.pdf</a><br />
+<br />
+Podemos ver que en la lista de ortólogos de <code>eggNOG</code> aparecen los mismos organismos que en <code>OMA.</code>Setaria italica es mijo y triticum aestivum es trigo común.</p>
+<p><img src="foto1.jpeg" width="625" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Analizar las vías metabólicas en las que participa el gen identificado.</strong> En este caso se usa el programa KEGG PATHWAY: <a href="https://www.genome.jp/kegg/pathway.html" class="uri">https://www.genome.jp/kegg/pathway.html</a> .</li>
+</ol>
+<p><img src="foto19.jpeg" width="625" /></p>
+<p>Seleccionamos el mapa de vías metabólicas relevante, en este caso el asociado a la síntesis de fenilpropanoides.</p>
+<p><img src="foto14.jpeg" width="625" /></p>
+<p><img src="foto21.jpeg" width="625" /></p>
+<p>La proteína de interés está remarcada en rojo con su número EC correspondiente (4.3.1.24). Con este mapa podemos visualizar las diferentes vías metabólicas en la que participa. Como habíamos visto previamente, nuestra enzima participa en la biosíntesis de <strong>ácido cinámico.</strong></p>
+<p>Un defecto en la secuencia que codifica para la enzima <strong>Fenilalanina amonio liasa</strong> lleva a que esta no pueda sintetizar <strong>ácido cinámico</strong> a partir de la <strong>fenilalanina</strong>, que luego no puede sintetizar <u><strong>ácido cumárico</strong></u>, cuyo rol es importante en la resistencia a enfermedades en las plantas.</p>
+<p>A partir del <strong>ácido cinámico</strong>, además del <strong>ácido cumárico</strong>, se sintetizan la <strong>cumarina</strong> y el <strong>cinamaldehído</strong>, que también son <strong>fenilpropanoides</strong> que permiten a las plantas resistir enfermedades.</p>
+</div>
+<div id="como-encontrar-secuencias-de-adn-de-genes-de-interes" class="section level2">
+<h2><strong>Cómo encontrar secuencias de ADN de genes de interés</strong></h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Usar una plataforma para buscar la proteína o gen de interés y encontrar secuencias de ADN asociadas</strong>. Usamos la plataforma <code>Gene</code> de <code>NCBI</code>: <a href="https://www.ncbi.nlm.nih.gov/gene/" class="uri">https://www.ncbi.nlm.nih.gov/gene/</a>.</p>
+<p>Nos interesa una serie de proteínas llamadas “<strong>proteínas relacionadas con patogénesis</strong>” , las cuales se abrevian como <strong><code>PR</code></strong> seguidas de un número, por ejemplo PR-1. Para acotar la búsqueda, conviene indicar una especie, como soybean en este caso.</p></li>
+</ol>
+<p><img src="foto22.jpeg" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Elegir una proteína y explorar</strong></li>
+</ol>
+<p><img src="foto23.jpeg" /></p>
+<p><em>¿Por qué la barra roja es más corta que la azul?</em></p>
+<p>La barra roja representa la proteína, que se tradujo a partir del <strong>codón de inicio</strong> del <strong>ARNm</strong> hasta el <strong>codón de terminación</strong>, por eso la secuencia violeta del ARNm es más larga, ya que esta presenta todos los nucleótidos, más allá del marco de lectura.</p>
+<p><img src="foto7.jpeg" /></p>
+<p>ARNm:</p>
+<p><img src="foto25.jpeg" /></p>
+<p>Proteína:</p>
+<p><img src="foto26.jpeg" /></p>
+<p>¿<em>Qué es el péptido señal y cuál es su función?</em></p>
+<p>Cuando el ARNm llega al citoplasma unido a un ribosoma, comienza a traducirse a la proteína que corresponda al marco de lectura correspondiente. Una vez comenzada la traducción, a esta proteína se le asigna una <strong>péptido señal</strong> (secuencia de aminoácidos) la cual actúa como una especie de etiqueta que indica donde debe seguir traduciéndose esta proteína, ya sea acoplada al retículo endoplasmático rugoso, en el citoplasma, núcleo, etc. para que así la proteína llegue al lugar correcto.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Explorar <code>UNIPROT</code></strong></li>
+</ol>
+<p><img src="foto28.jpeg" /></p>
+<p><img src="foto29.jpeg" /></p>
+<p><u><strong>Quitinasa del tomate:</strong></u></p>
+<p>Otras proteínas de interés son las <strong>quitinasas</strong> que son enzimas capaces de digerir las paredes celulares de los hongos.</p>
+<p>Buscando nuevamente en el <code>NCBI</code>, podemos ver el esquema de la estructura de la quitinasa y en particular sus <strong>exones e intrones</strong>.</p>
+<p><img src="foto29.jpeg" /></p>
+<p><img src="foto29.jpeg" /></p>
+<p>Las partes de la secuencia de genes que contienen la información para producir las proteínas se llaman <strong>exones</strong>, ya que se expresan, mientras que las partes de la secuencia del gen que no codifican se llaman <strong>intrones</strong>, porque están en medio o interfieren con los exones. El proceso por el cual los intrones son escindidos del transcripto de ARNm y los exones se unen para generar el <strong>ARNm maduro</strong> se denomina <strong>Splicing</strong>.</p>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
